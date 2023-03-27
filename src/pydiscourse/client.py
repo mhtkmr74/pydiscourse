@@ -1565,6 +1565,7 @@ class DiscourseClient(object):
                 files=files,
                 data=data,
                 json=json,
+		        verify=False,
                 headers=headers,
                 timeout=self.timeout,
             )
