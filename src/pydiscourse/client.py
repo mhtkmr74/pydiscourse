@@ -30,7 +30,7 @@ PUT = "PUT"
 class DiscourseClient(object):
     """Discourse API client"""
 
-    def __init__(self, host, api_username, api_key, timeout=None):
+    def __init__(self, host, api_username, api_key, verify, timeout=None):
         """
         Initialize the client
 
@@ -47,6 +47,7 @@ class DiscourseClient(object):
         self.api_username = api_username
         self.api_key = api_key
         self.timeout = timeout
+        self.verify = verify
 
     def user(self, username):
         """
@@ -1565,8 +1566,8 @@ class DiscourseClient(object):
                 files=files,
                 data=data,
                 json=json,
-		        verify=False,
                 headers=headers,
+                verify = self.verify,
                 timeout=self.timeout,
             )
 
